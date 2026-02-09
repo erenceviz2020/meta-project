@@ -1,4 +1,4 @@
-// screens/HomeScreen.js
+
 import React, { useMemo, useState } from "react";
 import {
   SafeAreaView,
@@ -61,7 +61,7 @@ const MENU_ITEMS = [
     description: "Cold, refreshing, made daily.",
     price: "$4.50",
     category: "Drinks",
-    image: require("../assets/limonata.png"), // istersen başka içecek görselin yoksa buna koy
+    image: require("../assets/limonata.png"), 
   },
 ];
 
