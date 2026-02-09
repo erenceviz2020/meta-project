@@ -1,4 +1,4 @@
-// screens/ProfileScreen.js
+
 import React, { useEffect, useMemo, useState } from "react";
 import {
   SafeAreaView,
@@ -47,7 +47,7 @@ export default function ProfileScreen({ navigation }) {
 
         const map = Object.fromEntries(values);
 
-        // Eğer onboarded değilse onboarding'e gönder
+        
         if (map[STORAGE_KEYS.isOnboarded] !== "true") {
           navigation.replace("Onboarding");
           return;
@@ -57,7 +57,7 @@ export default function ProfileScreen({ navigation }) {
         setEmail(map[STORAGE_KEYS.email] ?? "");
         setPhone(map[STORAGE_KEYS.phone] ?? "");
       } catch (e) {
-        // sessiz geç
+        
       } finally {
         setLoading(false);
       }
@@ -67,7 +67,7 @@ export default function ProfileScreen({ navigation }) {
   const isValid = useMemo(() => {
     const nameOk = firstName.trim().length >= 2;
     const emailOk = emailRegex.test(email.trim().toLowerCase());
-    // telefon opsiyonel ama girildiyse en az 7 rakam olsun
+    
     const phoneDigits = phone.replace(/\D/g, "");
     const phoneOk = phone.trim().length === 0 || phoneDigits.length >= 7;
     return nameOk && emailOk && phoneOk;
@@ -94,7 +94,7 @@ export default function ProfileScreen({ navigation }) {
   };
 
   const handleDiscard = async () => {
-    // storage'dan tekrar okuyup ekrana geri bas
+    
     try {
       const values = await AsyncStorage.multiGet([
         STORAGE_KEYS.firstName,
@@ -116,7 +116,7 @@ export default function ProfileScreen({ navigation }) {
         style: "destructive",
         onPress: async () => {
           try {
-            // Kriter: logout'a basınca tüm profil verileri silinsin
+            
             await AsyncStorage.multiRemove([
               STORAGE_KEYS.firstName,
               STORAGE_KEYS.email,
