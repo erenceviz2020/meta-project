@@ -1,4 +1,4 @@
-// screens/OnboardingScreen.js
+
 import React, { useEffect, useMemo, useState } from "react";
 import {
   SafeAreaView,
@@ -27,7 +27,7 @@ export default function OnboardingScreen({ navigation }) {
   const [firstName, setFirstName] = useState("");
   const [email, setEmail] = useState("");
 
-  // Eğer daha önce onboarding tamamlandıysa direkt Home'a at
+  
   useEffect(() => {
     (async () => {
       try {
@@ -36,7 +36,7 @@ export default function OnboardingScreen({ navigation }) {
           navigation.replace("Home");
         }
       } catch (e) {
-        // sessiz geç
+        
       }
     })();
   }, [navigation]);
